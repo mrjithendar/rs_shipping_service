@@ -1,0 +1,12 @@
+[Unit]
+Description=Shipping Service
+
+[Service]
+
+Environment=CART_ENDPOINT=cart.{{DOMAIN}}:8080
+Environment=DB_HOST=mysql.{{DOMAIN}}
+ExecStart=/bin/java -jar /home/roboshop/{{COMPONENT}}/shipping.jar
+SyslogIdentifier={{COMPONENT}}
+
+[Install]
+WantedBy=multi-user.target
