@@ -12,7 +12,8 @@ pipeline {
         AWS_ACCOUNT_ID = "826334059644"
         vault = credentials('vaultToken')
         tfvars = "vars/${params.Options}.tfvars"
-        eks_cluster_name = "roboshop-eks-cluster-int"
+        eks_cluster_name = "dkode-eks-cluster-demo"
+        service = "shipping_demo"
     }
 
     stages {
@@ -25,14 +26,10 @@ pipeline {
         }
 
         stage ('Build Docker Images') {
-            stage ("Build shipping Docker Image") {
-                    steps {
-                        dir("Docker/shipping") {
-                            sh "docker build -t roboshop-shipping-int ."
-                            sh "docker tag roboshop-shipping-int:latest ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/roboshop-shipping-int:latest"
-                            sh "docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/roboshop-shipping-int:latest"
-                    }
-                }
+            steps {
+                sh "docker build -t ${service} ."
+                sh "docker tag ${service}:latest ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${service}:latest"
+                sh "docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${service}:latest"
             }
         }
     }
