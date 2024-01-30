@@ -12,7 +12,7 @@ pipeline {
         AWS_ACCOUNT_ID = "826334059644"
         vault = credentials('vaultToken')
         tfvars = "vars/${params.Options}.tfvars"
-        eks_cluster_name = "dkode-eks-cluster-demo"
+        eks_cluster_name = "roboshop-eks-cluster-demo"
         service = "shipping_demo"
     }
 
