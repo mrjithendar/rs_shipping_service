@@ -38,7 +38,7 @@ spec:
               topologyKey: "kubernetes.io/hostname"
       containers:
         - name: shipping
-          image: 826334059644.dkr.ecr.us-east-1.amazonaws.com/roboshop-shipping-demo:latest
+          image: 826334059644.dkr.ecr.us-east-1.amazonaws.com/shipping_demo:latest
           ports:
             - containerPort: 8080
           # it's Java it needs lots of memory
