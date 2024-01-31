@@ -41,13 +41,14 @@ spec:
           image: 826334059644.dkr.ecr.us-east-1.amazonaws.com/roboshop-shipping-demo:latest
           ports:
             - containerPort: 8080
+          # it's Java it needs lots of memory
           resources:
-            requests:
-              cpu: 500m
-              memory: 100Mi
             limits:
-              cpu: 1
-              memory: 200Mi
+              cpu: 200m
+              memory: 1000Mi
+            requests:
+              cpu: 100m
+              memory: 500Mi
           env:
             - name: CART_ENDPOINT
               value: "cart:8080"
