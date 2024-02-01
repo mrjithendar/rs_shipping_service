@@ -53,5 +53,5 @@ spec:
             - name: CART_ENDPOINT
               value: "cart:8080"
             - name: DB_HOST
-              value: "mysql"
+              value: mysql.roboshop.com
 
