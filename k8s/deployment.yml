@@ -5,6 +5,7 @@ metadata:
   namespace: roboshop
   labels:
     app: shipping
+    purpose: roboshop
 spec:
   replicas: 1
   selector:
