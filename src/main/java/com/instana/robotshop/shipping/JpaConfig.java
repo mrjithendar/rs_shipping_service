@@ -19,7 +19,8 @@ public class JpaConfig {
 
         DataSourceBuilder bob = DataSourceBuilder.create();
 
-        bob.driverClassName("com.mysql.jdbc.Driver");
+//      "com.mysql.jdbc.Driver" changed to "com.mysql.cj.jdbc.Driver"
+        bob.driverClassName("com.mysql.cj.jdbc.Driver");
         bob.url(JDBC_URL);
         bob.username("shipping");
         bob.password("RoboShop@1"); //Password is adde here
